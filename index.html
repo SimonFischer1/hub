@@ -16,78 +16,104 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#050505;
+background:#000;
 color:white;
 }
 
-header{
-padding:30px;
+.container{
+width:95%;
+max-width:1400px;
+margin:auto;
+padding:20px;
+}
+
+.search-wrapper{
+display:flex;
+justify-content:center;
+margin-top:20px;
+margin-bottom:30px;
+}
+
+.search-box{
+display:flex;
+width:800px;
+max-width:100%;
+}
+
+.search-box input{
+flex:1;
+padding:15px;
+font-size:20px;
+border:none;
+outline:none;
+border-radius:15px 0 0 15px;
+}
+
+.search-box button{
+width:70px;
+border:none;
+cursor:pointer;
+font-size:24px;
+background:#efe3c1;
+border-radius:0 15px 15px 0;
+}
+
+.search-box button:hover{
+background:#ff7b00;
+}
+
+.time-box{
+width:500px;
+max-width:100%;
+margin:20px auto;
+border:2px solid white;
+border-radius:20px;
+padding:25px;
 text-align:center;
 }
 
 .clock{
-font-size:48px;
+font-size:42px;
 font-weight:bold;
-color:#f5e6c8;
+color:#efe3c1;
 }
 
 .utc{
 font-size:20px;
 margin-top:10px;
-color:#d9c7a2;
 }
 
 .date{
-font-size:18px;
-margin-top:5px;
-color:#d9c7a2;
+margin-top:10px;
+font-size:22px;
 }
 
-.search-container{
-margin-top:30px;
-display:flex;
-justify-content:center;
+.separator{
+height:2px;
+background:white;
+margin:40px 0;
 }
 
-.search-box{
-display:flex;
-width:700px;
-max-width:90%;
-}
-
-.search-input{
-flex:1;
-padding:15px;
-font-size:18px;
-border:none;
-outline:none;
-}
-
-.search-button{
-width:70px;
-border:none;
-cursor:pointer;
-font-size:24px;
-background:#f5e6c8;
-}
-
-.search-button:hover{
-background:#ff7b00;
-}
-
-.timer{
+.section-title{
 text-align:center;
-margin-top:40px;
+font-size:36px;
+color:#efe3c1;
+margin-bottom:25px;
+}
+
+.timer-section{
+text-align:center;
+padding:30px;
 }
 
 .timer-display{
-font-size:50px;
+font-size:56px;
 margin:20px;
-color:#f5e6c8;
+color:#efe3c1;
 }
 
 .timer-input{
-width:100px;
+width:90px;
 padding:10px;
 font-size:18px;
 text-align:center;
@@ -100,8 +126,8 @@ border:2px solid white;
 padding:10px 20px;
 margin:5px;
 cursor:pointer;
-border-radius:8px;
-transition:.3s;
+border-radius:10px;
+transition:0.3s;
 }
 
 .timer-btn:hover{
@@ -109,59 +135,71 @@ background:#ff7b00;
 border-color:#ff7b00;
 }
 
-.section-title{
-font-size:34px;
-text-align:center;
-margin-top:60px;
-margin-bottom:25px;
-color:#f5e6c8;
-}
-
 .projects{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
-padding:20px;
-max-width:1200px;
-margin:auto;
+gap:30px;
 }
 
 .project{
-background:black;
-border:2px solid white;
-border-radius:12px;
-padding:30px;
 text-decoration:none;
 color:white;
-text-align:center;
-transition:.3s;
+border:2px solid white;
+border-radius:15px;
+overflow:hidden;
+transition:0.3s;
+background:#080808;
 }
 
 .project:hover{
 border-color:#ff7b00;
-color:#ff7b00;
 }
 
-.separator{
-height:2px;
-background:white;
-margin:50px 25px;
+.preview{
+height:250px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+background:linear-gradient(135deg,#101010,#202020);
+}
+
+.weather{
+border-top:4px solid #2d7dff;
+}
+
+.nautico{
+border-top:4px solid #2ecc71;
+}
+
+.coming{
+border-top:4px solid #f1c40f;
+}
+
+.project-title{
+padding:15px;
+text-align:center;
+font-size:24px;
+}
+
+.quicklinks-title{
+font-size:42px;
+color:#efe3c1;
+margin-bottom:35px;
 }
 
 .quicklinks{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:25px;
-padding:30px;
-max-width:1200px;
-margin:auto;
+gap:40px;
+padding:20px;
 }
 
 .quicklink{
 text-decoration:none;
 color:white;
 text-align:center;
-transition:.3s;
+transition:0.3s;
 }
 
 .quicklink:hover{
@@ -170,27 +208,29 @@ color:#ff7b00;
 
 .icon{
 font-size:60px;
-margin-bottom:10px;
+margin-bottom:15px;
+}
+
+.link-name{
+font-size:22px;
 }
 
 footer{
-border-top:2px solid white;
-margin-top:40px;
-padding:30px;
 text-align:center;
+padding:80px 20px;
 }
 
-.footer-link{
-color:white;
-text-decoration:none;
-font-weight:bold;
+.signature{
+max-width:700px;
+width:90%;
+transition:0.3s;
 }
 
-.footer-link:hover{
-color:#ff7b00;
+.signature:hover{
+transform:scale(1.03);
 }
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
 .projects{
 grid-template-columns:1fr;
@@ -200,6 +240,10 @@ grid-template-columns:1fr;
 grid-template-columns:repeat(2,1fr);
 }
 
+.clock{
+font-size:32px;
+}
+
 }
 
 </style>
@@ -207,47 +251,44 @@ grid-template-columns:repeat(2,1fr);
 
 <body>
 
-<header>
+<div class="container">
 
-<div class="clock" id="clock"></div>
-
-<div class="utc" id="utc"></div>
-
-<div class="date" id="date"></div>
-
-<div class="search-container">
+<div class="search-wrapper">
 
 <div class="search-box">
 
 <input
 type="text"
 id="search"
-class="search-input"
-placeholder="Mit Ecosia suchen...">
+placeholder="Hello Simon was möchtest du heute suchen...">
 
-<button
-class="search-button"
-onclick="searchEcosia()">
-➜
-</button>
+<button onclick="searchEcosia()">➜</button>
 
 </div>
 
 </div>
 
-</header>
+<div class="time-box">
 
-<div class="timer">
+<div id="clock" class="clock"></div>
 
-<h2>🍅 Pomodoro Timer</h2>
+<div id="utc" class="utc"></div>
 
-<br>
+<div id="date" class="date"></div>
+
+</div>
+
+<div class="separator"></div>
+
+<div class="timer-section">
+
+<h2 class="section-title">Pomodoro</h2>
 
 <input
 type="number"
 id="minutes"
-class="timer-input"
-value="25">
+value="25"
+class="timer-input">
 
 <div id="timer" class="timer-display">
 25:00
@@ -259,30 +300,45 @@ value="25">
 
 </div>
 
-<h2 class="section-title">
-Meine Projekte
-</h2>
+<div class="separator"></div>
+
+<h2 class="section-title">Meine Projekte</h2>
 
 <div class="projects">
 
 https://simonfischer1.github.io/weather/
 
-<h2>🌦️ WEATHER</h2>
-<p>Wetterportal</p>
+<div class="preview">
+☁️ WEATHER
+</div>
+
+<div class="project-title weather">
+Weather
+</div>
 
 </a>
 
 https://simonfischer1.github.io/nautico/
 
-<h2>⚓ NAUTICO</h2>
-<p>Nautisches Portal</p>
+<div class="preview">
+⚓ NAUTICO
+</div>
+
+<div class="project-title nautico">
+Nautico
+</div>
 
 </a>
 
 #
 
-<h2>🚧 PROJEKT 3</h2>
-<p>Coming Soon</p>
+<div class="preview">
+🚧 COMING SOON
+</div>
+
+<div class="project-title coming">
+Coming Soon
+</div>
 
 </a>
 
@@ -290,69 +346,39 @@ https://simonfischer1.github.io/nautico/
 
 <div class="separator"></div>
 
-<h2 class="section-title">
-Quicklinks
-</h2>
+<h2 class="section-title">Quicklinks</h2>
 
 <div class="quicklinks">
-
-<a class="quicklink"
-href="https://map.openseamap.org"
-target="_blank">
-
-<div class="icon">⚓</div>
-<div>OpenSeaMap</div>
-
-</a>
 
 <a class="quicklink"
 href="https://ecampus.jade-hs.de"
 target="_blank">
 
 <div class="icon">🎓</div>
-<div>E-Campus</div>
+<div class="link-name">E-Campus</div>
 
 </a>
 
 https://jadeconnect.sharepoint.com/sites/StudierendeFBSeefahrtundLogistik
 
 <div class="icon">📚</div>
-<div>Jade Connect</div>
+<div class="link-name">Jade Connect</div>
 
 </a>
 
-https://www.youtube.com
+<a class="quicklink"
+href="https://map.openseamap.org"
+target="_blank">
 
-<div class="icon">▶️</div>
-<div>YouTube</div>
-
-</a>
-
-https://github.com
-
-<div class="icon">💻</div>
-<div>GitHub</div>
+<div class="icon">⚓</div>
+<div class="link-name">OpenSeaMap</div>
 
 </a>
 
-https://maps.google.com
+#
 
-<div class="icon">🗺️</div>
-<div>Google Maps</div>
-
-</a>
-
-https://www.instagram.com
-
-<div class="icon">📷</div>
-<div>Instagram</div>
-
-</a>
-
-https://www.dwd.de
-
-<div class="icon">🌍</div>
-<div>DWD</div>
+<div class="icon">➕</div>
+<div class="link-name">Coming Soon</div>
 
 </a>
 
@@ -360,57 +386,30 @@ https://www.dwd.de
 
 <footer>
 
-<div style="font-size:24px;">
-Made with ❤️ by
-
 <a
-class="footer-link"
 href="https://www.instagram.com/thesimonfischer"
 target="_blank">
 
-Simon Fischer
+madeby.png
 
 </a>
-</div>
-
-<br>
-
-<div>
-© 2026 Simon Fischer
-</div>
 
 </footer>
 
+</div>
+
 <script>
-
-function updateClock(){
-
-const now = new Date();
-
-document.getElementById("clock").innerHTML =
-now.toLocaleTimeString("de-DE");
-
-document.getElementById("utc").innerHTML =
-"UTC: " + now.toUTCString().split(" ")[4];
-
-document.getElementById("date").innerHTML =
-now.toLocaleDateString("de-DE");
-
-}
-
-setInterval(updateClock,1000);
-updateClock();
 
 function searchEcosia(){
 
-const q =
+const query =
 document.getElementById("search").value;
 
-if(q){
+if(query){
 
 window.open(
-"https://www.ecosia.org/search?q=" +
-encodeURIComponent(q),
+"https://www.ecosia.org/search?q="+
+encodeURIComponent(query),
 "_blank"
 );
 
@@ -428,18 +427,46 @@ searchEcosia();
 
 });
 
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString("de-DE");
+
+document.getElementById("utc").innerHTML =
+"UTC: " +
+now.toUTCString().split(" ")[4];
+
+document.getElementById("date").innerHTML =
+now.toLocaleDateString("de-DE",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
+
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
 let timerInterval;
-let timeLeft=1500;
+let timeLeft = 1500;
 
 function updateTimer(){
 
-const min=Math.floor(timeLeft/60);
-const sec=timeLeft%60;
+const mins =
+Math.floor(timeLeft/60);
 
-document.getElementById("timer").innerHTML=
-String(min).padStart(2,"0")
+const secs =
+timeLeft%60;
+
+document.getElementById("timer").innerHTML =
+String(mins).padStart(2,'0')
 + ":"
-+ String(sec).padStart(2,"0");
++
+String(secs).padStart(2,'0');
 
 }
 
@@ -447,16 +474,17 @@ function startTimer(){
 
 clearInterval(timerInterval);
 
-timeLeft=
-document.getElementById("minutes").value*60;
+timeLeft =
+document.getElementById("minutes").value * 60;
 
 updateTimer();
 
-timerInterval=setInterval(function(){
+timerInterval = setInterval(()=>{
 
 if(timeLeft>0){
 
 timeLeft--;
+
 updateTimer();
 
 }
@@ -466,15 +494,17 @@ updateTimer();
 }
 
 function stopTimer(){
+
 clearInterval(timerInterval);
+
 }
 
 function resetTimer(){
 
 clearInterval(timerInterval);
 
-timeLeft=
-document.getElementById("minutes").value*60;
+timeLeft =
+document.getElementById("minutes").value * 60;
 
 updateTimer();
 
