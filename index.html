@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simon Hub</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+}
+
+header{
+padding:30px;
+text-align:center;
+}
+
+.clock{
+font-size:48px;
+font-weight:bold;
+color:#f5e6c8;
+}
+
+.utc{
+font-size:20px;
+margin-top:10px;
+color:#d9c7a2;
+}
+
+.date{
+font-size:18px;
+margin-top:5px;
+color:#d9c7a2;
+}
+
+.search-container{
+margin-top:30px;
+display:flex;
+justify-content:center;
+}
+
+.search-box{
+display:flex;
+width:700px;
+max-width:90%;
+}
+
+.search-input{
+flex:1;
+padding:15px;
+font-size:18px;
+border:none;
+outline:none;
+}
+
+.search-button{
+width:70px;
+border:none;
+cursor:pointer;
+font-size:24px;
+background:#f5e6c8;
+}
+
+.search-button:hover{
+background:#ff7b00;
+}
+
+.timer{
+text-align:center;
+margin-top:40px;
+}
+
+.timer-display{
+font-size:50px;
+margin:20px;
+color:#f5e6c8;
+}
+
+.timer-input{
+width:100px;
+padding:10px;
+font-size:18px;
+text-align:center;
+}
+
+.timer-btn{
+background:black;
+color:white;
+border:2px solid white;
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+border-radius:8px;
+transition:.3s;
+}
+
+.timer-btn:hover{
+background:#ff7b00;
+border-color:#ff7b00;
+}
+
+.section-title{
+font-size:34px;
+text-align:center;
+margin-top:60px;
+margin-bottom:25px;
+color:#f5e6c8;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.project{
+background:black;
+border:2px solid white;
+border-radius:12px;
+padding:30px;
+text-decoration:none;
+color:white;
+text-align:center;
+transition:.3s;
+}
+
+.project:hover{
+border-color:#ff7b00;
+color:#ff7b00;
+}
+
+.separator{
+height:2px;
+background:white;
+margin:50px 25px;
+}
+
+.quicklinks{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.quicklink{
+text-decoration:none;
+color:white;
+text-align:center;
+transition:.3s;
+}
+
+.quicklink:hover{
+color:#ff7b00;
+}
+
+.icon{
+font-size:60px;
+margin-bottom:10px;
+}
+
+footer{
+border-top:2px solid white;
+margin-top:40px;
+padding:30px;
+text-align:center;
+}
+
+.footer-link{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.footer-link:hover{
+color:#ff7b00;
+}
+
+@media(max-width:900px){
+
+.projects{
+grid-template-columns:1fr;
+}
+
+.quicklinks{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="clock" id="clock"></div>
+
+<div class="utc" id="utc"></div>
+
+<div class="date" id="date"></div>
+
+<div class="search-container">
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+class="search-input"
+placeholder="Mit Ecosia suchen...">
+
+<button
+class="search-button"
+onclick="searchEcosia()">
+➜
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="timer">
+
+<h2>🍅 Pomodoro Timer</h2>
+
+<br>
+
+<input
+type="number"
+id="minutes"
+class="timer-input"
+value="25">
+
+<div id="timer" class="timer-display">
+25:00
+</div>
+
+<button class="timer-btn" onclick="startTimer()">Start</button>
+<button class="timer-btn" onclick="stopTimer()">Stop</button>
+<button class="timer-btn" onclick="resetTimer()">Reset</button>
+
+</div>
+
+<h2 class="section-title">
+Meine Projekte
+</h2>
+
+<div class="projects">
+
+https://simonfischer1.github.io/weather/
+
+<h2>🌦️ WEATHER</h2>
+<p>Wetterportal</p>
+
+</a>
+
+https://simonfischer1.github.io/nautico/
+
+<h2>⚓ NAUTICO</h2>
+<p>Nautisches Portal</p>
+
+</a>
+
+#
+
+<h2>🚧 PROJEKT 3</h2>
+<p>Coming Soon</p>
+
+</a>
+
+</div>
+
+<div class="separator"></div>
+
+<h2 class="section-title">
+Quicklinks
+</h2>
+
+<div class="quicklinks">
+
+<a class="quicklink"
+href="https://map.openseamap.org"
+target="_blank">
+
+<div class="icon">⚓</div>
+<div>OpenSeaMap</div>
+
+</a>
+
+<a class="quicklink"
+href="https://ecampus.jade-hs.de"
+target="_blank">
+
+<div class="icon">🎓</div>
+<div>E-Campus</div>
+
+</a>
+
+https://jadeconnect.sharepoint.com/sites/StudierendeFBSeefahrtundLogistik
+
+<div class="icon">📚</div>
+<div>Jade Connect</div>
+
+</a>
+
+https://www.youtube.com
+
+<div class="icon">▶️</div>
+<div>YouTube</div>
+
+</a>
+
+https://github.com
+
+<div class="icon">💻</div>
+<div>GitHub</div>
+
+</a>
+
+https://maps.google.com
+
+<div class="icon">🗺️</div>
+<div>Google Maps</div>
+
+</a>
+
+https://www.instagram.com
+
+<div class="icon">📷</div>
+<div>Instagram</div>
+
+</a>
+
+https://www.dwd.de
+
+<div class="icon">🌍</div>
+<div>DWD</div>
+
+</a>
+
+</div>
+
+<footer>
+
+<div style="font-size:24px;">
+Made with ❤️ by
+
+<a
+class="footer-link"
+href="https://www.instagram.com/thesimonfischer"
+target="_blank">
+
+Simon Fischer
+
+</a>
+</div>
+
+<br>
+
+<div>
+© 2026 Simon Fischer
+</div>
+
+</footer>
+
+<script>
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString("de-DE");
+
+document.getElementById("utc").innerHTML =
+"UTC: " + now.toUTCString().split(" ")[4];
+
+document.getElementById("date").innerHTML =
+now.toLocaleDateString("de-DE");
+
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+function searchEcosia(){
+
+const q =
+document.getElementById("search").value;
+
+if(q){
+
+window.open(
+"https://www.ecosia.org/search?q=" +
+encodeURIComponent(q),
+"_blank"
+);
+
+}
+
+}
+
+document
+.getElementById("search")
+.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+searchEcosia();
+}
+
+});
+
+let timerInterval;
+let timeLeft=1500;
+
+function updateTimer(){
+
+const min=Math.floor(timeLeft/60);
+const sec=timeLeft%60;
+
+document.getElementById("timer").innerHTML=
+String(min).padStart(2,"0")
++ ":"
++ String(sec).padStart(2,"0");
+
+}
+
+function startTimer(){
+
+clearInterval(timerInterval);
+
+timeLeft=
+document.getElementById("minutes").value*60;
+
+updateTimer();
+
+timerInterval=setInterval(function(){
+
+if(timeLeft>0){
+
+timeLeft--;
+updateTimer();
+
+}
+
+},1000);
+
+}
+
+function stopTimer(){
+clearInterval(timerInterval);
+}
+
+function resetTimer(){
+
+clearInterval(timerInterval);
+
+timeLeft=
+document.getElementById("minutes").value*60;
+
+updateTimer();
+
+}
+
+updateTimer();
+
+</script>
+
+</body>
+</html>
