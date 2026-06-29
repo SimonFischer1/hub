@@ -8,108 +8,178 @@
 
 <style>
 
+:root{
+--navy:#172A39;
+--cream:#E9E4E0;
+--orange:#FC563C;
+--gray:#6E7575;
+--dark:#0d141b;
+}
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:#000;
-color:white;
+background:var(--navy);
+color:var(--cream);
+overflow-x:hidden;
+min-height:100vh;
+}
+
+/* ANIMIERTER HINTERGRUND */
+
+.background{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-1;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+opacity:.12;
+animation:float 16s infinite ease-in-out;
+}
+
+.circle1{
+width:450px;
+height:450px;
+background:var(--orange);
+top:-120px;
+right:-100px;
+}
+
+.circle2{
+width:350px;
+height:350px;
+background:var(--cream);
+bottom:-100px;
+left:-100px;
+animation-delay:4s;
+}
+
+.circle3{
+width:250px;
+height:250px;
+background:#ffffff;
+top:40%;
+left:50%;
+animation-delay:8s;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0) translateX(0);
+}
+50%{
+transform:translateY(-40px) translateX(20px);
+}
 }
 
 .container{
-width:95%;
-max-width:1400px;
+width:min(1500px,94%);
 margin:auto;
 padding:20px;
 }
 
+/* Suche */
+
 .search-wrapper{
+padding-top:20px;
 display:flex;
 justify-content:center;
-margin-top:20px;
-margin-bottom:30px;
 }
 
 .search-box{
 display:flex;
-width:800px;
-max-width:100%;
+width:min(900px,100%);
+backdrop-filter:blur(15px);
 }
 
 .search-box input{
 flex:1;
-padding:15px;
-font-size:20px;
+padding:18px;
+font-size:18px;
 border:none;
 outline:none;
-border-radius:15px 0 0 15px;
+background:rgba(233,228,224,0.95);
+color:var(--navy);
+border-radius:20px 0 0 20px;
 }
 
 .search-box button{
-width:70px;
+width:80px;
 border:none;
 cursor:pointer;
 font-size:24px;
-background:#efe3c1;
-border-radius:0 15px 15px 0;
+background:var(--orange);
+color:white;
+border-radius:0 20px 20px 0;
+transition:.3s;
 }
 
 .search-box button:hover{
-background:#ff7b00;
+background:white;
+color:var(--navy);
 }
 
-.time-box{
-width:500px;
-max-width:100%;
-margin:20px auto;
-border:2px solid white;
-border-radius:20px;
-padding:25px;
+/* Zeitkarte */
+
+.time-card{
+max-width:500px;
+margin:35px auto;
 text-align:center;
+padding:25px;
+border-radius:25px;
+border:2px solid rgba(255,255,255,.5);
+background:rgba(13,20,27,.75);
+backdrop-filter:blur(15px);
 }
 
 .clock{
-font-size:42px;
-font-weight:bold;
-color:#efe3c1;
+font-size:48px;
+font-weight:700;
+color:var(--cream);
 }
 
 .utc{
+margin-top:12px;
 font-size:20px;
-margin-top:10px;
 }
 
 .date{
-margin-top:10px;
-font-size:22px;
+margin-top:8px;
+font-size:20px;
 }
 
 .separator{
+width:100%;
 height:2px;
-background:white;
-margin:40px 0;
+background:rgba(255,255,255,.3);
+margin:35px 0;
 }
+
+/* Pomodoro */
 
 .section-title{
 text-align:center;
-font-size:36px;
-color:#efe3c1;
+font-size:38px;
 margin-bottom:25px;
+color:var(--cream);
 }
 
-.timer-section{
+.pomodoro{
 text-align:center;
-padding:30px;
-}
-
-.timer-display{
-font-size:56px;
-margin:20px;
-color:#efe3c1;
 }
 
 .timer-input{
@@ -117,131 +187,198 @@ width:90px;
 padding:10px;
 font-size:18px;
 text-align:center;
-}
-
-.timer-btn{
-background:black;
-color:white;
-border:2px solid white;
-padding:10px 20px;
-margin:5px;
-cursor:pointer;
+border:none;
 border-radius:10px;
-transition:0.3s;
 }
 
-.timer-btn:hover{
-background:#ff7b00;
-border-color:#ff7b00;
+.timer-display{
+font-size:64px;
+font-weight:bold;
+margin:20px;
+color:var(--cream);
 }
+
+.timer-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.timer-buttons button{
+padding:12px 25px;
+font-size:16px;
+cursor:pointer;
+border-radius:12px;
+border:2px solid var(--cream);
+background:transparent;
+color:white;
+transition:.3s;
+}
+
+.timer-buttons button:hover{
+background:var(--orange);
+border-color:var(--orange);
+}
+
+/* Projekte */
 
 .projects{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:30px;
+gap:20px;
 }
 
 .project{
 text-decoration:none;
 color:white;
-border:2px solid white;
-border-radius:15px;
+border-radius:20px;
 overflow:hidden;
-transition:0.3s;
-background:#080808;
+transition:.3s;
 }
 
 .project:hover{
-border-color:#ff7b00;
+transform:translateY(-8px);
 }
 
-.preview{
-height:250px;
+.project-card{
+height:220px;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:28px;
-background:linear-gradient(135deg,#101010,#202020);
+font-size:42px;
+font-weight:bold;
 }
 
-.weather{
-border-top:4px solid #2d7dff;
+.weather-card{
+background:linear-gradient(135deg,#1f4fff,#172A39);
 }
 
-.nautico{
-border-top:4px solid #2ecc71;
+.nautico-card{
+background:linear-gradient(135deg,#12b76a,#172A39);
 }
 
-.coming{
-border-top:4px solid #f1c40f;
+.coming-card{
+background:linear-gradient(135deg,#FC563C,#172A39);
 }
 
-.project-title{
-padding:15px;
+.project-name{
+padding:18px;
 text-align:center;
 font-size:24px;
+font-weight:600;
+background:rgba(0,0,0,.25);
 }
 
-.quicklinks-title{
-font-size:42px;
-color:#efe3c1;
-margin-bottom:35px;
-}
+/* Quicklinks */
 
 .quicklinks{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:40px;
-padding:20px;
+gap:18px;
 }
 
 .quicklink{
 text-decoration:none;
 color:white;
+padding:25px;
 text-align:center;
-transition:0.3s;
+border-radius:20px;
+background:rgba(13,20,27,.75);
+border:1px solid rgba(255,255,255,.2);
+backdrop-filter:blur(12px);
+transition:.3s;
 }
 
 .quicklink:hover{
-color:#ff7b00;
+background:var(--orange);
+transform:translateY(-5px);
 }
 
 .icon{
-font-size:60px;
-margin-bottom:15px;
+font-size:48px;
+margin-bottom:10px;
 }
 
-.link-name{
-font-size:22px;
+.link-title{
+font-size:18px;
+font-weight:600;
 }
+
+/* Footer */
 
 footer{
+padding:60px 20px;
 text-align:center;
-padding:80px 20px;
 }
 
-.signature{
-max-width:700px;
-width:90%;
-transition:0.3s;
+.footer-link{
+text-decoration:none;
+font-size:22px;
+font-weight:600;
+color:var(--cream);
+transition:.3s;
 }
 
-.signature:hover{
-transform:scale(1.03);
+.footer-link:hover{
+color:var(--orange);
 }
 
-@media(max-width:1000px){
+/* iPad */
+
+@media(max-width:1024px){
 
 .projects{
-grid-template-columns:1fr;
+grid-template-columns:repeat(3,1fr);
 }
 
 .quicklinks{
 grid-template-columns:repeat(2,1fr);
 }
 
+}
+
+/* iPhone */
+
+@media(max-width:768px){
+
 .clock{
-font-size:32px;
+font-size:36px;
+}
+
+.date,
+.utc{
+font-size:16px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+.projects{
+grid-template-columns:1fr;
+}
+
+.project-card{
+height:140px;
+font-size:30px;
+}
+
+.quicklinks{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.icon{
+font-size:36px;
+}
+
+.link-title{
+font-size:15px;
+}
+
+.timer-display{
+font-size:48px;
 }
 
 }
@@ -251,16 +388,24 @@ font-size:32px;
 
 <body>
 
+<div class="background">
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+</div>
+
 <div class="container">
+
+<!-- Suche -->
 
 <div class="search-wrapper">
 
 <div class="search-box">
 
 <input
-type="text"
 id="search"
-placeholder="Hello Simon was möchtest du heute suchen...">
+type="text"
+placeholder="Moin Simon, was möchtest du suchen?">
 
 <button onclick="searchEcosia()">➜</button>
 
@@ -268,7 +413,9 @@ placeholder="Hello Simon was möchtest du heute suchen...">
 
 </div>
 
-<div class="time-box">
+<!-- Zeit -->
+
+<div class="time-card">
 
 <div id="clock" class="clock"></div>
 
@@ -280,64 +427,75 @@ placeholder="Hello Simon was möchtest du heute suchen...">
 
 <div class="separator"></div>
 
-<div class="timer-section">
+<!-- Pomodoro -->
 
-<h2 class="section-title">Pomodoro</h2>
+<section class="pomodoro">
+
+<h2 class="section-title">🍅 Pomodoro</h2>
 
 <input
-type="number"
 id="minutes"
-value="25"
-class="timer-input">
+class="timer-input"
+type="number"
+value="25">
 
 <div id="timer" class="timer-display">
 25:00
 </div>
 
-<button class="timer-btn" onclick="startTimer()">Start</button>
-<button class="timer-btn" onclick="stopTimer()">Stop</button>
-<button class="timer-btn" onclick="resetTimer()">Reset</button>
-
+<div class="timer-buttons">
+<button onclick="startTimer()">Start</button>
+<button onclick="stopTimer()">Stop</button>
+<button onclick="resetTimer()">Reset</button>
 </div>
 
+</section>
+
 <div class="separator"></div>
+
+<!-- Projekte -->
 
 <h2 class="section-title">Meine Projekte</h2>
 
 <div class="projects">
 
-https://simonfischer1.github.io/weather/
+<a class="project"
+href="https://simonfischer1.github.io/weather/"
+target="_blank">
 
-<div class="preview">
-☁️ WEATHER
+<div class="project-card weather-card">
+🌦️
 </div>
 
-<div class="project-title weather">
-Weather
-</div>
-
-</a>
-
-https://simonfischer1.github.io/nautico/
-
-<div class="preview">
-⚓ NAUTICO
-</div>
-
-<div class="project-title nautico">
-Nautico
+<div class="project-name">
+WEATHER
 </div>
 
 </a>
 
-#
+<a class="project"
+href="https://simonfischer1.github.io/nautico/"
+target="_blank">
 
-<div class="preview">
-🚧 COMING SOON
+<div class="project-card nautico-card">
+⚓
 </div>
 
-<div class="project-title coming">
-Coming Soon
+<div class="project-name">
+NAUTICO
+</div>
+
+</a>
+
+<a class="project"
+href="#">
+
+<div class="project-card coming-card">
+🚧
+</div>
+
+<div class="project-name">
+COMING SOON
 </div>
 
 </a>
@@ -345,6 +503,8 @@ Coming Soon
 </div>
 
 <div class="separator"></div>
+
+<!-- Quicklinks -->
 
 <h2 class="section-title">Quicklinks</h2>
 
@@ -353,33 +513,57 @@ Coming Soon
 <a class="quicklink"
 href="https://ecampus.jade-hs.de"
 target="_blank">
-
 <div class="icon">🎓</div>
-<div class="link-name">E-Campus</div>
-
+<div class="link-title">E‑Campus</div>
 </a>
 
-https://jadeconnect.sharepoint.com/sites/StudierendeFBSeefahrtundLogistik
-
+<a class="quicklink"
+href="https://jadeconnect.sharepoint.com/sites/StudierendeFBSeefahrtundLogistik"
+target="_blank">
 <div class="icon">📚</div>
-<div class="link-name">Jade Connect</div>
-
+<div class="link-title">Jade Connect</div>
 </a>
 
 <a class="quicklink"
 href="https://map.openseamap.org"
 target="_blank">
-
 <div class="icon">⚓</div>
-<div class="link-name">OpenSeaMap</div>
-
+<div class="link-title">OpenSeaMap</div>
 </a>
 
-#
+<a class="quicklink"
+href="https://www.youtube.com"
+target="_blank">
+<div class="icon">▶️</div>
+<div class="link-title">YouTube</div>
+</a>
 
-<div class="icon">➕</div>
-<div class="link-name">Coming Soon</div>
+<a class="quicklink"
+href="https://simonfischer1.github.io/hub/"
+target="_blank">
+<div class="icon">💻</div>
+<div class="link-title">🚧 Coming soon</div>
+</a>
 
+<a class="quicklink"
+href="https://maps.google.com"
+target="_blank">
+<div class="icon">🗺️</div>
+<div class="link-title">🚧 Coming soon</div>
+</a>
+
+<a class="quicklink"
+href="https://simonfischer1.github.io/hub/"
+target="_blank">
+<div class="icon">📷</div>
+<div class="link-title">🚧 Coming soon</div>
+</a>
+
+<a class="quicklink"
+href="https://simonfischer1.github.io/hub/"
+target="_blank">
+<div class="icon">🌍</div>
+<div class="link-title">🚧 Coming soon</div>
 </a>
 
 </div>
@@ -387,10 +571,11 @@ target="_blank">
 <footer>
 
 <a
+class="footer-link"
 href="https://www.instagram.com/thesimonfischer"
 target="_blank">
 
-madeby.png
+Made with ❤️ by Simon Fischer
 
 </a>
 
@@ -402,71 +587,64 @@ madeby.png
 
 function searchEcosia(){
 
-const query =
-document.getElementById("search").value;
+const query=document.getElementById('search').value;
 
 if(query){
 
 window.open(
-"https://www.ecosia.org/search?q="+
+'https://www.ecosia.org/search?q='+
 encodeURIComponent(query),
-"_blank"
+'_blank'
 );
 
 }
 
 }
 
-document
-.getElementById("search")
-.addEventListener("keypress",function(e){
+document.getElementById('search')
+.addEventListener('keypress',function(e){
 
-if(e.key==="Enter"){
+if(e.key==='Enter'){
 searchEcosia();
 }
 
 });
 
-function updateClock(){
+function updateTime(){
 
-const now = new Date();
+const now=new Date();
 
-document.getElementById("clock").innerHTML =
-now.toLocaleTimeString("de-DE");
+document.getElementById('clock').textContent=
+now.toLocaleTimeString('de-DE');
 
-document.getElementById("utc").innerHTML =
-"UTC: " +
-now.toUTCString().split(" ")[4];
+document.getElementById('utc').textContent=
+'UTC: '+now.toUTCString().split(' ')[4];
 
-document.getElementById("date").innerHTML =
-now.toLocaleDateString("de-DE",{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
+document.getElementById('date').textContent=
+now.toLocaleDateString('de-DE',{
+weekday:'long',
+day:'numeric',
+month:'long',
+year:'numeric'
 });
 
 }
 
-setInterval(updateClock,1000);
-updateClock();
+setInterval(updateTime,1000);
+updateTime();
 
 let timerInterval;
-let timeLeft = 1500;
+let seconds=1500;
 
-function updateTimer(){
+function drawTimer(){
 
-const mins =
-Math.floor(timeLeft/60);
+const m=Math.floor(seconds/60);
+const s=seconds%60;
 
-const secs =
-timeLeft%60;
-
-document.getElementById("timer").innerHTML =
-String(mins).padStart(2,'0')
-+ ":"
-+
-String(secs).padStart(2,'0');
+document.getElementById('timer').textContent=
+String(m).padStart(2,'0')+
+':'+
+String(s).padStart(2,'0');
 
 }
 
@@ -474,18 +652,17 @@ function startTimer(){
 
 clearInterval(timerInterval);
 
-timeLeft =
-document.getElementById("minutes").value * 60;
+seconds=
+document.getElementById('minutes').value*60;
 
-updateTimer();
+drawTimer();
 
-timerInterval = setInterval(()=>{
+timerInterval=setInterval(()=>{
 
-if(timeLeft>0){
+if(seconds>0){
 
-timeLeft--;
-
-updateTimer();
+seconds--;
+drawTimer();
 
 }
 
@@ -503,14 +680,14 @@ function resetTimer(){
 
 clearInterval(timerInterval);
 
-timeLeft =
-document.getElementById("minutes").value * 60;
+seconds=
+document.getElementById('minutes').value*60;
 
-updateTimer();
+drawTimer();
 
 }
 
-updateTimer();
+drawTimer();
 
 </script>
 
